@@ -1,4 +1,4 @@
-# Social Democracy: An Alternate History
+# Ukrainian people's republic - An Alternate History
 
 ## Included Libraries
 
@@ -10,8 +10,8 @@
 
 ## Building the game
 
-1. Install [dendrynexus](https://github.com/aucchen/dendrynexus)
+1. Run `npm install` in the root folder
 
-2. Run `dendrynexus make-html` in this folder.
+2. Run `npm exec dendrynexus make-html` in this folder.
 
 To update dendrynexus in `package-lock.json`, run `npm install --upgrade https://github.com/aucchen/dendrynexus`
