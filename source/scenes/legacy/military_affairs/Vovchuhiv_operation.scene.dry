@@ -1,0 +1,37 @@
+title: Vovchuhiv operation
+new-page: true
+on-arrival: month_actions += 4
+max-visits: 1
+is-card: true
+view-if: year = 1919 and Galician_army_strength = 60000
+tags: military_affairs
+card-image: img/SichRiflemen.jpg
+frequency: 900
+
+
+
+= Vovchyhiv operation
+
+Suffering defeat under Lviv put us in a precarious conditions. While government moved after staying in Lviv as long as possible, we are facing the reality: the Lviv is lost. Our general staff produced a plan to encircle the Lviv and push the front to Peremyshl 
+
+
+- @first_phase: Start the operation. 
+- @do_not_start: Scrap the plans
+- @root: Return card
+
+@first_phase
+subtitle: -3 budget
+choose-if: budget >= 3 
+unavailable-subtitle: Not enough budget.
+on-arrival: Galician_army_strength -= 1000
+go-to: second_phase
+
+
+@do_not_start
+
+
+@second_phase
+
+= Second Phase of the operation
+
+Two battle groups of UGA are used in the operation. Right now we managed to establish control over railroads and are preparing to encircle Lviv. 

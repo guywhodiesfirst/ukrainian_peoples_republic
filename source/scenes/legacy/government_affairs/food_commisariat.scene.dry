@@ -1,0 +1,36 @@
+title: Agricultural Policy
+new-page: true
+is-card: true
+on-arrival: month_actions += 1
+view-if: year = 1918
+card-image: img/portraits/BaadeFritz.jpg
+tags: govt_affairs
+
+= Food Comissariat
+
+To solve our food crisis, Ukrainian government formet Food Comissariat, which goal is to prevent severe hunger. However, methods differs. We can organize severe measures of fighting bread speculation, crack down on food hoarding and redistribute food. Or, if the situation is more stable, we can organize more moderate measures. 
+
+- @food_redistribution: Landlords hoarding too much food. One cannot have full barns of grain while others suffer!
+- @Crackdown_trade: Speculants are using the dire situation of our Republic to enrich themselves. We must crackdown on speculants!
+- @Secure_private_property: While it will align us with mostly Polish landlords, by defending the rights to private property, we can ensure that big holdings would safely sow the grain without much disturbance from peasant rebellions. 
+
+
+@food_redistribution
+title: Land Reform
+subtitle: -1 budget - Break up the large aristocratic estates and give land to landless workers.
+
+With our policy of land reform, we are acquiring farmland from large estates, and giving the land to farmworkers' associations and small peasants. In essence, this brings class struggle to the countryside, breaking the semi-feudal property relations present in East Prussia and other areas with large estates. The bourgeois parties and large farmers despise our intrusion into the sacredness of private property, while leftists are cautiously optimistic.
+
+
+@Crackdown_trade
+title: Agricultural Financing
+subtitle: -1 budget - Increase financing for agricultural credit and insurance.
+choose-if: budget >= 1
+
+We have increased financial support for small farmers, providing access to credit and insurance, saving them from privation. The left and center of our party are opposed to our rural policy, seeing these policies as giveaways to petit-bourgeois farmers.
+
+
+@Secure_private_property
+title: Food Procurement
+
+We have increased state purchasing of food staples to provide to urban workers and the poor. This benefits workers more than it benefits farmers, as we are negotiating for lower purchase prices. [? if black_thursday_seen and (in_weimar_coalition or in_grand_coalition) : Our coalition partners consider this policy to be a wasteful handout. ?]

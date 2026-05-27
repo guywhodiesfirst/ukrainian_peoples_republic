@@ -1,0 +1,43 @@
+title: Italian Campaign
+new-page: true
+on-arrival: month_actions += 1
+max-visits: 3
+is-card: true
+tags: military_affairs
+view-if: year = 1918
+card-image: img/SichRiflemen.jpg
+frequency: 200
+
+
+= Italian Campaign
+
+The Great War still ongoing, but it seems that Central Power wouldnt stay. Austria-Hungarian state is already in the process of disentegration. We could use this moment to ensure transportation of our forces in Austro-Hungarian army from battlegrounds of Italy to Ukraine.
+It is important to note, that not only volunteers, but mobilized Ukrainian soldiers in Austro-Hungarian army. We could try to use our influence to return as much soldiers in Ukraine as fast as possible. 
+
+- @Secret_deal: By using our "contacts" in Austro-Hungary we could try to secretly transport Ukrainian troops from the frontline. 
+- @approach_austria: We are sure that Austro-Hungarian state wouldn't compromise on mobilized soldiers. However, with proper diplomacy we could get back Ukrainian volunteers of Sich Riflemen.
+- @switch_sides: Vasyl Paneiko, editor of daily newspaper "Dilo", now discussed to be first minister of Foreign Affairs of Western Ukrainian State, secretly proposes a formation of Galician legion on the side of the Entente from Ukrainian prisoners... Maybe we should "switch sides"?
+- @negotiate_with_Austria: We could negotiate with Austro-Hungarian state to help us with resources, and commit loyally to the Austro-Hungary. It could be the right thing to do.
+
+@Secret_deal
+subtitle: -1 resources
+choose-if: resources >= 1
+unavailable-subtitle: Not enough resources.
+on-arrival: Galician_army_strength += 6500; Galician_officers += 50; Equipment += 1;
+
+
+@approach_austria
+subtitle: The safe option
+on-arrival: Galician_army_strength += 2000; Galician_officers += 20; Equipment += 1; 
+
+
+@switch_sides
+subtitle: -2 resources. {!<p style="color:blue;">Galician legion on the side of Entente will be formed</p>!} 
+choose-if: resources >= 2
+unavailable-subtitle: Not enough resources.
+on-arrival: resources -= 2; Galician_legion = 1; Eqiopment -= 1;
+
+
+@negotiate_with_Austria
+subtitle: Honor +1
+on-arrival: German_minority_relation += 1; 

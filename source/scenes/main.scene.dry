@@ -1,5 +1,5 @@
 title: Next month
-set-bg: img/map_2.jpg
+set-bg: img/ukraine_map.png
 is-hand: true
 on-arrival: {!
 if (Q.advisor_action_timer <= 0) {
@@ -22,7 +22,7 @@ max-cards: 3
 - @shuffle_leadership_pinned
 
 @main_easy
-set-bg: img/map_2.jpg
+set-bg: img/ukraine_map.png
 is-hand: true
 on-arrival: {!
 if (Q.advisor_action_timer <= 0) {
@@ -43,19 +43,26 @@ max-cards: 4
 - @govt
 - #advisor
 - @shuffle_leadership_pinned
+- @military
 
 
 @party
 title: Party Affairs
-card-image: img/Vorwaerts_nr_1.png
+card-image: img/Dilo1.png
 is-deck: true
 
 - #party_affairs
 
 @govt
 title: Government Affairs
-view-if: time >= 6
 card-image: img/reichstag_2.jpg
 is-deck: true
 
 - #govt_affairs
+
+@military
+title: Military Affairs
+card-image: img/Striltsi1.jpg
+is-deck: true
+
+- #military_affairs

@@ -1,0 +1,54 @@
+title: Land Reform
+subtitle: The Revolution's greatest task
+view-if: year = 1918
+max-visits: 1
+tags: event
+new-page: true
+card-image: img/BarykadaLviv.jpg
+go-to: agrarian_reformation
+
+= Land Reform
+
+Eastern Galicia is a land of staggering inequalities: Between dominated by Polish and Jewish nationals cities and Ukrainian countryside, between the landlord and the peasant, between the worker and the capitalist. Between the Polish worker and Ukrainian one. 
+However, the place of the biggest injustice is a land. Ukrainians nearly do not hold any land, while the majority of it concentrated in the Polish landlords holdings. Where Ukrainian control land, they are facing hardships such as unproportional taxation and military requisitions.
+Ukrainians live in absolute poverty on their land; land which is not owned by them.
+
+Agrarian reform is the only thing that can heal the wounds of inequality and poverty. However, it needs resources, skills, control, stability and agreement between the factions. Many of which we do not have now. 
+
+Peasant population forms the most substantial social base for new Ukrainian State. It is the liberation of peasant of national and social oppression that mobilized the people for the Revolution. It is expected from us to introduce Land Reform as soon as possible.
+
+@agrarian_reformation
+
+- @The_current_situation: Situation at the countryside
+- @Administrative_control: State of our bureucracy
+- @Choose_the_plan: Choose the agrarian reform plan. 
+
+@The_current_situation
+subtitle: -1 budget
+on-arrival: budget -=1; medics += 20
+
+
+@Administrative_control
+subtitle: -2 budget
+on-arrival: budget -= 2; epidemic -= 1;
+
+@Choose_the_plan
+
+- @RadicalParty_land_reform
+- @SocialDemocratic_land_reform
+- @NationalDemocratic_land_reform
+- @Compromise_land_reform
+
+
+
+@RadicalParty_land_reform
+title: Land Reform
+
+@SocialDemocratic_land_reform
+title: Land Reform
+
+@NationalDemocratic_land_reform
+title: Land Reform
+
+@Compromise_land_reform
+title: Land Reform

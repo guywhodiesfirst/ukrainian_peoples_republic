@@ -8,10 +8,6 @@ if (Q.unemployed) {
 if (Q.inflation) {
     Q.inflation_2 = Q.inflation.toFixed(1);
 }
-Q.economic_growth_2 = '0';
-if (Q.economic_growth) {
-    Q.economic_growth_2 = Q.economic_growth.toFixed(1);
-}
 !}
 
 = Status
@@ -20,174 +16,191 @@ if (Q.economic_growth) {
 
 Resources available: [+ resources +]
 
-SPD position: [? if spd_toleration : toleration ?][? if spd_in_government : in government - ?][? if spd_toleration == 0 and spd_in_government == 0 and spd_caretaker == 0 : opposition ?][? if spd_caretaker : caretaker government ?]
-[? if in_weimar_coalition and spd_in_government: Weimar Coalition ?][? if in_grand_coalition and spd_in_government: Grand Coalition ?][? if in_popular_front and spd_in_government: Popular Front ?][? if in_left_front and spd_in_government: Left Front ?][? if in_spd_majority and spd_in_government: SPD majority ?][? if in_minority_government and spd_in_government: minority government ?][? if in_emergency_government and spd_in_government: emergency government ?]
+National Union Status: Stable
 
-[? if spd_in_government and not in_spd_majority and not in_left_front : Coalition dissent: [+ coalition_dissent : coalition_dissent +] ?]
 
-[? if spd_in_government and (in_left_front or in_popular_front): KPD coalition dissent: [+ kpd_coalition_dissent : coalition_dissent +] ?]
 
 Internal dissent: [+ dissent_percent : dissent +]
 
-= Government
+= **Government**
 
-President: [+ president +]
+Head of Presidium: [+ president +]
 
-Chancellor: [+ chancellor +] ([+ chancellor_party +])
+{! <img src="img/portraits/KostLevytskyi.jpg"> !}
 
-Reichstag composition:
+= Upper Division of UNRada: 
 
-# 1928: 30, 1930: 25, 1932: 22
-{!<span class="tooltip-text" title="Social Democratic Party of Germany">SPD</span>!}: [+ spd_r +]%
-[? if sapd_formed and sapd_r > 0: SAPD: [+ sapd_r +]% ?]
-# 1928: 15, 1930: 15, 1932: 
-{!<span class="tooltip-text" title="Center Party + Bavarian People's Party">Z + BVP</span>!}: [+ z_r +]%
-# 1928: 10, 1930: 13
-{!<span class="tooltip-text" title="Communist Party of Germany">KPD</span>!}: [+ kpd_r +]%
-# 1928: 5, 1930: 4 (as DstP)
-{!<span class="tooltip-text" title="German Democratic Party">!}[? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]{!</span>!}: [+ ddp_r +]%
-# 1928: 9, 1930: 5
-{!<span class="tooltip-text" title="German People's Party">DVP</span>!}: [+ dvp_r +]%
-# 1928: 14, 1930: 7
-{!<span class="tooltip-text" title="German National People's Party">DNVP</span>!}: [+ dnvp_r +]%
-# 1928: 3, 1930: 18
-{!<span class="tooltip-text" title="National-Socialist German Worker's Party (Nazis)">NSDAP</span>!}: [+ nsdap_r +]%
-# 1928: 9, 1930: 10
-Others: [+ other_r +]%
+Radicals: [+ RadicalPartyVydil +]
 
-[? if spd_in_government = 1 : Budget: [+ budget +] ?]
+National Democrats: [+ UNDPVydil +]
+
+Social Democrats: [+ USDPVydil +]
+
+= UNRada composition:
+
+
+National Democratic Party: [+ UNDP_r +]
+
+Radical Party: [+ RadicalParty_r +]
+
+Social-Democratic Party: [+ USDP_r +]
+
+Social Christian Party: [+ ChristianParty_r +]
+
+Ukrainian People's Party: [+ UNP +]
+
+Others: [+ other_r +]
 
 Next election: [+ next_election_month : month +] [+ next_election_year +]
 
-= Economics
+= Economy
+
+[? if spd_in_government = 1 : Budget: [+ budget +] ?]
 
 Inflation: [+ inflation_2 +]%
 
 [? if black_thursday_seen = 1 : Unemployment: [+ unemployed_2 +]% ?]
 
-Economic growth: [+ economic_growth_2 +]%
 
 
+Corruption: [+ corruption : corruption +]
 
 # = Public Opinion
 
 @politics
 
-= Inter-party Relations
+= Control
+
+Polish Control: [+ Polish_control_normalizedpercents +]%    
 
 
-{!<span class="tooltip-text" title="Center Party">Z</span>!}: [+ z_relation : relationships +]
+Ukrainian Control: [+ Ukrainian_control_normalizedpercents +]%
 
-{!<span class="tooltip-text" title="German Democratic Party">!}[? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]{!</span>!}: [+ ddp_relation : relationships +]
+= Minority Relations
 
-{!<span class="tooltip-text" title="German People's Party">DVP</span>!}: [+ dvp_relation : relationships +]
 
-{!<span class="tooltip-text" title="Communist Party of Germany">KPD</span>!}: [+ kpd_relation : relationships +]
+Polish Minority: [+ Polish_minority_relation : minorities +]
 
-{!<span class="tooltip-text" title="German National People's Party">DNVP</span>!}: [+ dnvp_relation : relationships +]
+Jewish Minority: [+ Jewish_minority_relation : minorities +]
 
-{!<span class="tooltip-text" title="National-Socialist German Worker's Party (Nazis)">NSDAP</span>!}: [+ nsdap_relation : relationships +]
+German Minority: [+ German_minority_relation : minorities +]
 
-= Internal Factions of the SPD
+Ukrainian Support: [+ Ukrainian_government_popularity : national_unity_popularity +]
 
-{!<span class="tooltip-text" title="The Left is interested in radical, transformative policies and cooperation with the KPD.">Left</span>!} strength: [+ left_strength : strength +], dissent: [+ left_dissent : dissent +]
 
-{!<span class="tooltip-text" title="The Center is a faction of Center Marxists, between reform and revolution.">Center</span>!} strength: [+ center_strength : strength +], dissent: [+ center_dissent : dissent +]
+= Ukrainian National Union status
 
-{!<span class="tooltip-text" title="Labor's goal is economic reform and benefits for organized workers.">Labor</span>!} strength: [+ labor_strength : strength +], dissent: [+ labor_dissent : dissent +]
+Radical Party strength: [+ RadicalParty_strength : strength +], dissent: [+ RadicalParty_dissent : dissent +]
 
-{!<span class="tooltip-text" title="Reformists are pragmatic participants in government, and seek to expand the welfare state and defend democracy.">Reformist</span>!} strength: [+ reformist_strength : strength +], dissent: [+ reformist_dissent : dissent +]
+National Democratic Left strength: [+ NationalDemocraticLeft_strength : strength +], dissent: [+ NationalDemocraticRight_dissent : dissent +]
 
-[? if neorevisionism > 0 : Neorevisionist strength: [+ neorevisionist_strength : strength +], dissent: [+ neorevisionist_dissent : dissent +] ?]
+National Democratic Right strength: [+ NationalDemocraticRight_strength : strength +], dissent: [+ labor_dissent : dissent +]
+
+Social-Democratic Left strength: [+ SocialDemocraticLeft_strength : strength +], dissent: [+ SocialDemocraticLeft_dissent : dissent +]
+
+Social-Democratic Right strength: [+ SocialDemocraticRight_strength : strength +], dissent: [+ SocialDemocraticRight_dissent : dissent +]
+
+Social-Christians strength: [+ ChristianCatholic_strength : strength +], dissent: [+ ChristianCatholic_dissent : dissent +]
+
+[? if nationalism > 0 : Nationalism strength: [+ nationalism_strength : strength +], dissent: [+ nationalism_dissent : dissent +] ?]
 
 
 @paramilitaries
-on-arrival: {!
-if (Q.rb_strength) {
-    Q.rb_strength_2 = Q.rb_strength.toFixed(1);
-}
-if (Q.rfb_strength) {
-    Q.rfb_strength_2 = Q.rfb_strength.toFixed(1);
-}
-if (Q.sh_strength) {
-    Q.sh_strength_2 = Q.sh_strength.toFixed(1);
-}
-if (Q.sa_strength) {
-    Q.sa_strength_2 = Q.sa_strength.toFixed(1);
-}
-!}
 
-= Paramilitaries
+= Military Situation
 
-{!<span class="tooltip-text" title="The Reichsbanner Schwarz-Rot-Gold is a popular organization for defending democracy, mostly affiliated with the SPD.">Reichsbanner</span>!} Strength: [+ rb_strength_2 +] thousand
+Galician Army Strength: [+ Galician_army_strength +]
 
-Reichsbanner Militarization: [+ rb_militancy : militancy +]
+Galician Officership: [+ Galician_officers +]
 
-{!<span class="tooltip-text" title="The RFB (Rotfrontkämpferbund) is a communist group associated with the KPD.">RFB</span>!} Strength: [+ rfb_strength_2 +] thousand
+Equipment: [+ Equipment +]
 
-RFB Militarization: [+ rfb_militancy : militancy +]
+Experience: [+ experience +]
 
-{!<span class="tooltip-text" title="The Stahlhelm is a right-wing organization of war veterans associated with the DNVP.">Stahlhelm</span>!} Strength: [+ sh_strength_2 +] thousand
+Society Militarization: [+ soc_militarization : militancy +]
 
-Stahlhelm Militarization: [+ sh_militancy : militancy +]
+Polish Forces Strength: [+ POL_strength +] thousand
 
-{!<span class="tooltip-text" title="The SA (Sturmabteilung) is the Nazi paramilitary.">SA</span>!} Strength: [+ sa_strength_2 +] thousand
-
-SA Militarization: [+ sa_militancy : militancy +]
-
-= Official military/paramilitaries
-
-Reichswehr: [+ reichswehr_strength +] thousand troops.
-
-Reichswehr Loyalty: [+ reichswehr_loyalty : loyalty +]
-
-Prussian police: [+ prussian_police_strength +] thousand members.
-
-Prussian police loyalty: [+ prussian_police_loyalty : loyalty +]
-
-[? if spd_in_government : Interior police loyalty: [+ interior_police_loyalty : loyalty +] ?]
+Polish Forces Militarization: [+ rfb_militancy : militancy +]
 
 @polls
-on-arrival: {!
-Q.pro_republic_disp = Math.round(Q.pro_republic);
-Q.nationalism_disp = Math.round(Q.nationalism);
-Q.socialism_disp = Math.round(Q.socialism);
-!}
 
 = Projected election results
 
 (if the election were to be held now):
 
-SPD: [+ spd_votes +]%
+National Democratic Party: [+ spd_votes +]%
 
-[? if sapd_formed: SAPD: [+ sapd_votes +]% ?]
+Radical Party: [+ z_votes +]%
 
-Z + BVP: [+ z_votes +]%
+Social-democratic Party: [+ kpd_votes +]%
 
-KPD: [+ kpd_votes +]%
+Social-Christian Party: [+ ddp_votes +]%
 
-[? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]: [+ ddp_votes +]%
-
-DVP: [+ dvp_votes +]%
-
-DNVP: [+ dnvp_votes +]%
-
-NSDAP: [+ nsdap_votes +]%
+Ukrainian People's Party: [+ dvp_votes +]%
 
 Others: [+ other_votes +]%
 
 **Detailed results for each demographic**
 
-Workers: SPD: [+ workers_spd_display +]%, Z: [+ workers_z_display +]%, KPD: [+ workers_kpd_display +]%, [? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]: [+ workers_ddp_display +]%, DVP: [+ workers_dvp_display +]%; DNVP: [+ workers_dnvp_display +]%, NSDAP: [+ workers_nsdap_display +]%, Others: [+ workers_other_display +]% [? if sapd_formed: SAPD: [+ workers_sapd_display +]% ?]
+Workers: SPD: [+ workers_spd_normalized +]%, Z: [+ workers_z_normalized +]%, KPD: [+ workers_kpd_normalized +]%, DDP: [+ workers_ddp_normalized +]%, DVP: [+ workers_dvp_normalized +]%; DNVP: [+ workers_dnvp_normalized +]%, NSDAP: [+ workers_nsdap_normalized +]%, Others: [+ workers_other_normalized +]%
 
-New Middle Class: SPD: [+ new_middle_spd_display +]%, Z: [+ new_middle_z_display +]%, KPD: [+ new_middle_kpd_display +]%, [? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]: [+ new_middle_ddp_display +]%, DVP: [+ new_middle_dvp_display +]%; DNVP: [+ new_middle_dnvp_display +]%, NSDAP: [+ new_middle_nsdap_display +]%, Others: [+ new_middle_other_display +]% [? if sapd_formed: SAPD: [+ new_middle_sapd_display +]% ?]
+New Middle Class: SPD: [+ new_middle_spd_normalized +]%, Z: [+ new_middle_z_normalized +]%, KPD: [+ new_middle_kpd_normalized +]%, DDP: [+ new_middle_ddp_normalized +]%, DVP: [+ new_middle_dvp_normalized +]%; DNVP: [+ new_middle_dnvp_normalized +]%, NSDAP: [+ new_middle_nsdap_normalized +]%, Others: [+ new_middle_other_normalized +]%
 
-Old Middle Class: SPD: [+ old_middle_spd_display +]%, Z: [+ old_middle_z_display +]%, KPD: [+ old_middle_kpd_display +]%, [? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]: [+ old_middle_ddp_display +]%, DVP: [+ old_middle_dvp_display +]%; DNVP: [+ old_middle_dnvp_display +]%, NSDAP: [+ old_middle_nsdap_display +]%, Others: [+ old_middle_other_display +]% [? if sapd_formed: SAPD: [+ old_middle_sapd_display +]% ?]
+Old Middle Class: SPD: [+ old_middle_spd_normalized +]%, Z: [+ old_middle_z_normalized +]%, KPD: [+ old_middle_kpd_normalized +]%, DDP: [+ old_middle_ddp_normalized +]%, DVP: [+ old_middle_dvp_normalized +]%; DNVP: [+ old_middle_dnvp_normalized +]%, NSDAP: [+ old_middle_nsdap_normalized +]%, Others: [+ old_middle_other_normalized +]%
 
-Rural: SPD: [+ rural_spd_display +]%, Z: [+ rural_z_display +]%, KPD: [+ rural_kpd_display +]%, [? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]: [+ rural_ddp_display +]%, DVP: [+ rural_dvp_display +]%; DNVP: [+ rural_dnvp_display +]%, NSDAP: [+ rural_nsdap_display +]%, Others: [+ rural_other_display +]% [? if sapd_formed: SAPD: [+ rural_sapd_display +]% ?]
+Rural: SPD: [+ rural_spd_normalized +]%, Z: [+ rural_z_normalized +]%, KPD: [+ rural_kpd_normalized +]%, DDP: [+ rural_ddp_normalized +]%, DVP: [+ rural_dvp_normalized +]%; DNVP: [+ rural_dnvp_normalized +]%, NSDAP: [+ rural_nsdap_normalized +]%, Others: [+ rural_other_normalized +]%
 
-Unemployed: SPD: [+ unemployed_spd_display +]%, Z: [+ unemployed_z_display +]%, KPD: [+ unemployed_kpd_display +]%, [? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]: [+ unemployed_ddp_display +]%, DVP: [+ unemployed_dvp_display +]%; DNVP: [+ unemployed_dnvp_display +]%, NSDAP: [+ unemployed_nsdap_display +]%, Others: [+ unemployed_other_display +]% [? if sapd_formed: SAPD: [+ unemployed_sapd_display +]% ?]
+Unemployed: SPD: [+ unemployed_spd_normalized +]%, Z: [+ unemployed_z_normalized +]%, KPD: [+ unemployed_kpd_normalized +]%, DDP: [+ unemployed_ddp_normalized +]%, DVP: [+ unemployed_dvp_normalized +]%; DNVP: [+ unemployed_dnvp_normalized +]%, NSDAP: [+ unemployed_nsdap_normalized +]%, Others: [+ unemployed_other_normalized +]%
 
-Catholics: SPD: [+ catholics_spd_display +]%, Z: [+ catholics_z_display +]%, KPD: [+ catholics_kpd_display +]%, [? if not ddp_name: DDP?][? if ddp_name != 0 : [+ ddp_name +]?]: [+ catholics_ddp_display +]%, DVP: [+ catholics_dvp_display +]%; DNVP: [+ catholics_dnvp_display +]%, NSDAP: [+ catholics_nsdap_display +]%, Others: [+ catholics_other_display +]% [? if sapd_formed: SAPD: [+ catholics_sapd_display +]% ?]
+Catholics: SPD: [+ catholics_spd_normalized +]%, Z: [+ catholics_z_normalized +]%, KPD: [+ catholics_kpd_normalized +]%, DDP: [+ catholics_ddp_normalized +]%, DVP: [+ catholics_dvp_normalized +]%; DNVP: [+ catholics_dnvp_normalized +]%, NSDAP: [+ catholics_nsdap_normalized +]%, Others: [+ catholics_other_normalized +]%
 
-Support for the Republic: [+ pro_republic_disp +]%
+Support for the Republic: [+ pro_republic +]%
+
+
+@ForeignPolicy
+
+= Foreign Relations
+
+Entente: Hostile
+
+Czechoslovakia: Cooperative
+
+Poland: Polish-Ukrainian war
+
+Hungary: In flames
+
+Ukrainian People's Republic: Unification Act
+
+{! <img src="img/ZUNR_coat.jpg"> !}
+
+
+@UNRada
+
+= Ukrainian National Rada
+
+Upper Division of Ukrainian National Rada is a provisional collective leadership body, holding the role of collective prime-ministry. It is elected by the parliament. 
+
+The Division's competence included: to appoint members of the government, to make decisions on their resignation, amnesty, and to appoint senior state officials. civilians and troops. leaders, approve and promulgate laws.
+
+
+Members of Upper Division:
+
+
+1. Lev Bachynskyi (Radical Party) {! <img src="img/portraits/BachinsykiyLev.jpg"> !}
+
+2. Semen Vytyk (Social-Democratic Party) {! <img src="img/portraits/SemenVytyk.jpg"> !}
+
+3. Antoni Horbaczewski (National-Democratic Party) {! <img src="img/portraits/Antoni_Horbaczewski.jpg"> !} 
+
+4. Mykhailo Novakivskyi (National-Democratic Party) {! <img src="img/portraits/Novakivskyy.jpg"> !} 
+
+5. Okunevsky Teofil Ipolitovych {! <img src="img/portraits/Okunevskyi.jpg"> !}
+
+6. H. Dyviryak (Radical Party) No photo
+
+7. Andriy Shmihelskyi (Social-Democratic Party) {! <img src="img/portraits/Shmyhelsky.jpg"> !} 
+
+8. Stepan Yuryk (National-Democratic Party) {! <img src="img/portraits/Yurik.jpg"> !} 
+
+9. O. Popovych (Ukrainian Progressive Party) {! <img src="img/portraits/Popovych.jpg"> !}
